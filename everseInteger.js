@@ -13,9 +13,9 @@
 // Input: 120
 // Output: 21
 
-var num = 123;
+// var num = 123;
 // var num = -123;
-// var num = 1563847412;
+var num = 1563847412;
 function reverse(x) {
     let y = Math.abs(x);
     let result = 0;
@@ -43,5 +43,18 @@ function reverse2(x) {
     return y >= -Math.pow(2,31) && y <= Math.pow(2,31) - 1 ? y : 0;
 }
 
+function reverse3(x) {
+    if (x === 0) {
+        return x;
+    } else if (x > 0){
+        temp = parseInt(x.toString().split('').reverse().join(''));
+        return temp >= Math.pow(2, 31) -1 ? 0 : temp;
+    } else {
+        temp = parseInt('-' + x.toString().replace('-', '').split('').reverse().join(''));
+        return temp <= -(Math.pow(2, 31)) ? 0 : temp;
+    }
+}
+
 console.log(reverse(num))
 console.log(reverse2(num))
+console.log(reverse3(num))
