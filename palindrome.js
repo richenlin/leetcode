@@ -9,7 +9,7 @@
 // 小于10的数字是回文数字.
 // 时间复杂度: logN
 function palindrome(x) {
-    if (x < 0 || x%10 == 0) { return false }
+    if (x < 0 || x % 10 == 0) { return false }
     if (x < 10) { return true }
     let temp = 0;
     let y = x;
@@ -21,19 +21,31 @@ function palindrome(x) {
 }
 
 function palindrome1(x) {
-    if (x < 0) { return false }
+    if (x < 0 || x % 10 == 0) { return false }
     if (x < 10) { return true }
     let str = x.toString(); //>Number.MAX_SAFE_INTEGER,  (12345678987654321).toString() = 12345678987654320 (⊙﹏⊙)b
     let len = str.length, flag = 0;
     for (let i = 0; i < len; i++) {
-        console.log(str[i], str[len - (i + 1)], i, str[i] == str[len - (i + 1)])
         if (str[i] == str[len - (i + 1)]) {
-            flag ++;
+            flag++;
         } else {
-            flag --;
+            flag--;
         }
     }
     return flag === str.length;
+}
+
+//二分查找
+function palindrome2() {
+    if (x < 0 || x % 10 == 0) { return false }
+    if (x < 10) { return true }
+    let str = x.toString(), len = Math.floor(str.length / 2);
+    for (let i = 0; i < len; i++) {
+        if (str.charAt(i) !== str.charAt(str.length - 1 - i)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 console.log(palindrome(12321))
