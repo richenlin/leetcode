@@ -21,7 +21,7 @@ function reverse(x) {
     let y = Math.abs(x);
     let result = 0;
     while(y > 0) {
-        result = result * 10 + y % 10;
+        result = result * 10 + y % 10; //模十法
         y = parseInt(y / 10);
     }
     result = x < 0 ? -result : result;
