@@ -9,15 +9,15 @@
 // 小于10的数字是回文数字.
 // 时间复杂度: logN
 function palindrome(x) {
-    if (x < 0) { return false }
+    if (x < 0 || x%10 == 0) { return false }
     if (x < 10) { return true }
     let temp = 0;
     let y = x;
-    while (y > 0) {
+    while (y > temp) {
         temp = temp * 10 + y % 10;
-        y = parseInt(y / 10);
+        y = Math.floor(y / 10);
     }
-    return temp === x ? true : false;
+    return temp == x;
 }
 
 function palindrome1(x) {
