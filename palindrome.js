@@ -13,9 +13,9 @@ function palindrome(x) {
     if (x < 10) { return true }
     let temp = 0;
     let y = x;
-    while (y > temp) {
+    while (y > 0) {
         temp = temp * 10 + y % 10;
-        y = Math.floor(y / 10);
+        y = parseInt(y / 10);
     }
     return temp == x;
 }
@@ -26,17 +26,15 @@ function palindrome1(x) {
     let str = x.toString(); //>Number.MAX_SAFE_INTEGER,  (12345678987654321).toString() = 12345678987654320 (⊙﹏⊙)b
     let len = str.length, flag = 0;
     for (let i = 0; i < len; i++) {
-        if (str[i] == str[len - (i + 1)]) {
-            flag++;
-        } else {
-            flag--;
-        }
+        if (str[i] !== str[len - (i + 1)]) {
+            return false;
+        } 
     }
-    return flag === str.length;
+    return true;
 }
 
 //二分查找
-function palindrome2() {
+function palindrome2(x) {
     if (x < 0 || x % 10 == 0) { return false }
     if (x < 10) { return true }
     let str = x.toString(), len = Math.floor(str.length / 2);
@@ -50,4 +48,5 @@ function palindrome2() {
 
 console.log(palindrome(12321))
 console.log(palindrome1(12321))
+console.log(palindrome2(12321))
 

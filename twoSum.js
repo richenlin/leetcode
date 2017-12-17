@@ -33,6 +33,7 @@ console.log(twoSum([11, 2, 7, 15], 9));
 // Solution
 
 /**
+ * 
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
@@ -43,6 +44,7 @@ var _twoSum = function (nums, target) {
         return nums;
     var hashT = {};
     for (var i = 0; i < numLength; i++) {
+        // 存入hashtable，然后利用hashtable的唯一性，进行判断差值及原值是否存在
         if (hashT[target - nums[i]] || hashT[target - nums[i]] === 0) {
             return [hashT[target - nums[i]], i];
         }
